@@ -1,0 +1,13 @@
+<div fxFlex="1 1 auto">
+    <div class="container" fxLayout="row">
+        <label for="autocomplete">Enter a search string</label>
+    </div>
+    <div class="container" fxLayout="row">
+        <input id="autocomplete" #autocomplete type="text" placeholder="Enter a search string" [(ngModel)]="this.searchString" list="searchList" (input)="this.onInputChanged($event)">
+    </div>
+    <div class="container" fxLayout="row">
+        <datalist id="searchList">
+            <option *ngFor="let item of this.filteredItems;trackBy:this.trackByFunction" value="{{item}}">
+        </datalist>
+    </div>
+</div>
